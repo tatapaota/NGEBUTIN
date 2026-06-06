@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistik Pelanggan - Ngebut.in Owner</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="dashboard-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a
+          href="../index.html"
+          class="logo"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <img
+            src="../assets/img/logo.png"
+            alt="Ngebut.in Logo"
+            style="
+              height: 70px;
+              width: auto;
+              object-fit: contain;
+              mix-blend-mode: multiply;
+            "
+          />
+        </a>
+        <div class="user-profile">
+          <div
+            class="user-avatar"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--warning) 0%,
+                #d97706 100%
+              );
+            "
+          >
+            O
+          </div>
+          <div class="user-info">
+            <h4>Owner Ngebut.in</h4>
+            <p>
+              <i class="fas fa-crown" style="color: var(--warning)"></i> Chief
+              Executive
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div
+          style="
+            padding: 0 16px;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Utama
+        </div>
+        <a href="dashboard.html" class="nav-item"
+          ><i class="fas fa-chart-pie"></i> Dashboard Owner</a
+        >
+
+        <div
+          style="
+            padding: 0 16px;
+            margin: 15px 0 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Analisis & Laporan
+        </div>
+        <a href="motor-terbanyak.html" class="nav-item"
+          ><i class="fas fa-motorcycle"></i> Motor Terbanyak Disewa</a
+        >
+        <a href="statistik-pelanggan.html" class="nav-item active"
+          ><i class="fas fa-users"></i> Statistik Pelanggan</a
+        >
+        <a href="ringkasan-pendapatan.html" class="nav-item"
+          ><i class="fas fa-wallet"></i> Ringkasan Pendapatan</a
+        >
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Statistik & Demografi Pelanggan</h1>
+          <p>
+            Pantau pertumbuhan data pengguna serta tingkat konversi keaktifan
+            pelanggan Anda.
+          </p>
+        </div>
+      </div>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          max-width: 1000px;
+        "
+      >
+        <div
+          class="stat-card"
+          style="
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+          "
+        >
+          <h4 style="margin-bottom: 1.5rem; color: var(--secondary)">
+            <i
+              class="fas fa-users"
+              style="color: var(--info); margin-right: 8px"
+            ></i>
+            Aktivitas Pengguna
+          </h4>
+          <div style="display: flex; flex-direction: column; gap: 1rem">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 14px;
+                background: var(--gray-50);
+                border-radius: var(--radius);
+              "
+            >
+              <span>Total Pelanggan Terdaftar</span>
+              <span style="font-weight: 700" id="totalCustomers">0 Orang</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 14px;
+                background: var(--gray-50);
+                border-radius: var(--radius);
+              "
+            >
+              <span>Pelanggan Aktif Sering Sewa</span>
+              <span style="font-weight: 700" id="activeCustomers">0 Orang</span>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 14px;
+                background: var(--gray-50);
+                border-radius: var(--radius);
+              "
+            >
+              <span>Total Transaksi Selesai</span>
+              <span style="font-weight: 700" id="totalTransactions"
+                >0 Transaksi</span
+              >
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 14px;
+                background: var(--gray-50);
+                border-radius: var(--radius);
+                border-top: 2px dashed var(--gray-200);
+              "
+            >
+              <span style="font-weight: 600">Rata-rata Nilai Transaksi</span>
+              <span
+                style="font-weight: 700; color: var(--primary)"
+                id="avgTransaction"
+                >Rp 0</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="stat-card"
+          style="
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <h4
+            style="
+              align-self: flex-start;
+              margin-bottom: 1.5rem;
+              color: var(--secondary);
+            "
+          >
+            <i
+              class="fas fa-chart-pie"
+              style="color: #10b981; margin-right: 8px"
+            ></i>
+            Rasio Pelanggan Aktif vs Pasif
+          </h4>
+          <div style="position: relative; height: 240px; width: 240px">
+            <canvas id="customerChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../assets/js/api-client.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+      let clientChart = null;
+
+      function loadCustomerData() {
+        const bookings =
+          typeof getBooking === "function"
+            ? getBooking()
+            : JSON.parse(localStorage.getItem("bookings") || "[]");
+        const users =
+          typeof getUsers === "function"
+            ? getUsers()
+            : JSON.parse(localStorage.getItem("users") || "[]");
+        const filteredPaidBookings = bookings.filter(
+          (b) => b.status === "paid" || b.status === "done",
+        );
+
+        const totalCust = users.filter((u) => u.role === "user").length;
+        const uniqueActiveCustomers = new Set(
+          filteredPaidBookings.map((b) => b.userName),
+        ).size;
+        const totalTrans = filteredPaidBookings.length;
+
+        let incomeTotal = 0;
+        filteredPaidBookings.forEach((b) => {
+          incomeTotal += b.totalHarga || 0;
+        });
+        const avgTrans = totalTrans > 0 ? incomeTotal / totalTrans : 0;
+
+        const formatUang =
+          typeof formatRupiah === "function"
+            ? formatRupiah
+            : (num) => "Rp " + Number(num).toLocaleString("id-ID");
+
+        document.getElementById("totalCustomers").innerText =
+          `${totalCust} Orang`;
+        document.getElementById("activeCustomers").innerText =
+          `${uniqueActiveCustomers} Orang`;
+        document.getElementById("totalTransactions").innerText =
+          `${totalTrans} Transaksi`;
+        document.getElementById("avgTransaction").innerText =
+          formatUang(avgTrans);
+
+        // Logika Rasio Diagram Lingkaran
+        const pasifCustomers = totalCust - uniqueActiveCustomers;
+        const ctx = document.getElementById("customerChart").getContext("2d");
+
+        if (clientChart) {
+          clientChart.destroy();
+        }
+
+        clientChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Aktif (Pernah Sewa)", "Pasif (Belum Sewa)"],
+            datasets: [
+              {
+                data: [
+                  uniqueActiveCustomers,
+                  pasifCustomers < 0 ? 0 : pasifCustomers,
+                ],
+                backgroundColor: ["#10B981", "#9CA3AF"],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: { responsive: true, maintainAspectRatio: false },
+        });
+      }
+      loadCustomerData();
+    </script>
+  </body>
+</html>

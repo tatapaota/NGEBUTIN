@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approval Booking - Ngebut.in Admin</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body class="dashboard-layout">
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="mobile-admin-nav">
+      <button class="sidebar-toggle-btn" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <img
+        src="../assets/img/logo.png"
+        alt="Logo"
+        style="height: 35px; mix-blend-mode: multiply"
+      />
+
+      <div style="width: 24px"></div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a
+          href="../index.html"
+          class="logo"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <img
+            src="../assets/img/logo.png"
+            alt="Ngebut.in Logo"
+            style="
+              height: 70px;
+              width: auto;
+              object-fit: contain;
+              mix-blend-mode: multiply;
+              filter: brightness(1.05) contrast(1.05);
+            "
+          />
+        </a>
+
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <h4>Administrator</h4>
+            <p>
+              <i class="fas fa-shield-alt"></i>
+              Super Admin
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <i class="fas fa-chart-pie"></i>
+          Dashboard
+        </a>
+
+        <a href="kendaraan.html" class="nav-item">
+          <i class="fas fa-motorcycle"></i>
+          Kelola Kendaraan
+        </a>
+
+        <a href="booking.html" class="nav-item active">
+          <i class="fas fa-calendar-check"></i>
+          Approval Booking
+
+          <span
+            id="pendingBadge"
+            style="
+              margin-left: auto;
+              background: var(--danger);
+              color: #fff;
+              padding: 2px 8px;
+              border-radius: 20px;
+              font-size: 0.7rem;
+            "
+          >
+            0
+          </span>
+        </a>
+
+        <a href="pembayaran.html" class="nav-item">
+          <i class="fas fa-credit-card"></i>
+          Pembayaran
+        </a>
+
+        <a href="users.html" class="nav-item">
+          <i class="fas fa-users"></i>
+          Manajemen User
+        </a>
+
+        <a href="#" class="nav-item logout" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Approval Booking</h1>
+          <p>Setujui atau tolak permintaan sewa dari pelanggan</p>
+        </div>
+      </div>
+
+      <div id="notificationArea"></div>
+
+      <!-- FILTER -->
+      <div class="filter-tabs" style="margin-bottom: 1.5rem">
+        <button class="filter-tab active" onclick="setFilter('pending_dp')">
+          <i class="fas fa-clock"></i> Menunggu DP
+        </button>
+        <button class="filter-tab" onclick="setFilter('all')">
+          <i class="fas fa-list"></i> Semua Booking
+        </button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID Booking</th>
+              <th>Penyewa</th>
+              <th>Motor</th>
+              <th>Tanggal Sewa</th>
+              <th>Durasi</th>
+              <th>Total</th>
+              <th>DP</th>
+              <th>Sisa</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="bookingsTable">
+            <tr>
+              <td colspan="10" style="text-align: center; padding: 2rem">
+                Memuat data...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/script.js"></script>
+
+    <script>
+      const user = getCurrentUser();
+      if (!user || user.role !== "admin") {
+        window.location.href = "../login.html";
+      }
+
+      let currentFilter = "pending_dp";
+
+      function setFilter(filter) {
+        currentFilter = filter;
+        document
+          .querySelectorAll(".filter-tab")
+          .forEach((t) => t.classList.remove("active"));
+        event.target.classList.add("active");
+        renderBookings();
+      }
+
+      function renderBookings() {
+        let bookings = getBooking();
+
+        // 🔥 FIX: filter yang benar
+        if (currentFilter === "pending_dp") {
+          bookings = bookings.filter((b) => b.status === "pending_dp");
+        }
+
+        bookings.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+        const table = document.getElementById("bookingsTable");
+
+        if (bookings.length === 0) {
+          table.innerHTML = `
+                    <tr>
+                        <td colspan="10" style="text-align:center;padding:2rem;">
+                            Tidak ada booking
+                        </td>
+                    </tr>
+                `;
+          return;
+        }
+
+        table.innerHTML = bookings
+          .map((b) => {
+            const days = calculateDays(b.startDate, b.endDate);
+
+            return `
+                    <tr>
+                        <td>#${b.bookingCode || b.id}</td>
+                        <td><strong>${b.userName}</strong></td>
+                        <td>${b.motorName}</td>
+                        <td>${formatShortDate(b.startDate)} - ${formatShortDate(b.endDate)}</td>
+                        <td>${days} hari</td>
+                        <td>${formatRupiah(b.totalHarga)}</td>
+                        <td>${formatRupiah(b.dp || 0)}</td>
+                        <td>${formatRupiah(b.sisaBayar || 0)}</td>
+                        <td>
+                            <span style="padding:4px 8px;border-radius:6px;background:#fef3c7;color:#92400e;">
+                                ${b.status}
+                            </span>
+                        </td>
+                        <td>
+                            ${
+                              b.status === "pending_dp"
+                                ? `
+                                <button onclick="approveBooking(${b.id})">Approve DP</button>
+                                <button onclick="rejectBooking(${b.id})">Tolak</button>
+                            `
+                                : `
+                                <button onclick="viewDetail(${b.id})">Detail</button>
+                            `
+                            }
+                        </td>
+                    </tr>
+                `;
+          })
+          .join("");
+      }
+
+      function approveBooking(id) {
+        let bookings = getBooking();
+        let motors = getMotor();
+
+        const b = bookings.find((x) => x.id === id);
+        if (!b) return;
+
+        // 🔥 DP APPROVED → booking aktif
+        b.status = "booked";
+
+        const motor = motors.find((m) => m.id === b.motorId);
+        if (motor) motor.status = "booked";
+
+        saveBooking(bookings);
+        saveMotor(motors);
+
+        alert("DP dikonfirmasi, booking aktif!");
+        renderBookings();
+      }
+
+      function rejectBooking(id) {
+        let bookings = getBooking();
+        let motors = getMotor();
+
+        const b = bookings.find((x) => x.id === id);
+        if (!b) return;
+
+        b.status = "cancelled";
+
+        const motor = motors.find((m) => m.id === b.motorId);
+        if (motor) motor.status = "available";
+
+        saveBooking(bookings);
+        saveMotor(motors);
+
+        alert("Booking ditolak");
+        renderBookings();
+      }
+
+      function viewDetail(id) {
+        const b = getBooking().find((x) => x.id === id);
+        if (!b) return;
+
+        const days = calculateDays(b.startDate, b.endDate);
+
+        alert(
+          `Booking #${b.id}\n` +
+            `Penyewa: ${b.userName}\n` +
+            `Motor: ${b.motorName}\n` +
+            `DP: ${formatRupiah(b.dp)}\n` +
+            `Sisa: ${formatRupiah(b.sisaBayar)}\n` +
+            `Total: ${formatRupiah(b.totalHarga)}`,
+        );
+      }
+
+      renderBookings();
+      setInterval(renderBookings, 10000);
+    </script>
+  </body>
+</html>

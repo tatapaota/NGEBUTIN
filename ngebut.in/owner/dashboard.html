@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Owner - Ngebut.in</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a
+          href="../index.html"
+          class="logo"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <img
+            src="../assets/img/logo.png"
+            alt="Ngebut.in Logo"
+            style="
+              height: 70px;
+              width: auto;
+              object-fit: contain;
+              mix-blend-mode: multiply;
+            "
+          />
+        </a>
+        <div class="user-profile">
+          <div
+            class="user-avatar"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--warning) 0%,
+                #d97706 100%
+              );
+            "
+          >
+            O
+          </div>
+          <div class="user-info">
+            <h4>Owner Ngebut.in</h4>
+            <p>
+              <i class="fas fa-crown" style="color: var(--warning)"></i> Chief
+              Executive
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div
+          style="
+            padding: 0 16px;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          "
+        >
+          Utama
+        </div>
+        <a href="dashboard.html" class="nav-item active">
+          <i class="fas fa-chart-pie"></i> Dashboard Owner
+        </a>
+
+        <div
+          style="
+            padding: 0 16px;
+            margin: 15px 0 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          "
+        >
+          Analisis & Laporan
+        </div>
+
+        <a href="motor-terbanyak.html" class="nav-item">
+          <i class="fas fa-motorcycle"></i> Motor Terbanyak Disewa
+        </a>
+        <a href="statistik-pelanggan.html" class="nav-item">
+          <i class="fas fa-users"></i> Statistik Pelanggan
+        </a>
+        <a href="ringkasan-pendapatan.html" class="nav-item">
+          <i class="fas fa-wallet"></i> Ringkasan Pendapatan
+        </a>
+
+        <hr
+          style="
+            border: 0;
+            border-top: 1px solid var(--gray-200);
+            margin: 20px 0;
+          "
+        />
+
+        <a href="#" class="nav-item logout" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Selamat Datang Kembali, Owner!</h1>
+          <p>
+            Berikut adalah ringkasan performa bisnis rental kendaraan Ngebut.in
+            Anda hari ini.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom: 2rem">
+        <div class="stat-card" style="border-left: 4px solid var(--success)">
+          <div class="stat-header">
+            <span
+              class="stat-icon"
+              style="background: rgba(16, 185, 129, 0.1); color: var(--success)"
+              ><i class="fas fa-wallet"></i
+            ></span>
+          </div>
+          <div class="stat-value" id="quickRevenue">Rp 0</div>
+          <div class="stat-label">Total Akumulasi Omset</div>
+        </div>
+        <div class="stat-card" style="border-left: 4px solid var(--info)">
+          <div class="stat-header">
+            <span
+              class="stat-icon"
+              style="background: rgba(59, 130, 246, 0.1); color: var(--info)"
+              ><i class="fas fa-shopping-basket"></i
+            ></span>
+          </div>
+          <div class="stat-value" id="quickOrders">0</div>
+          <div class="stat-label">Transaksi Berhasil</div>
+        </div>
+      </div>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        "
+      >
+        <div
+          class="stat-card"
+          style="
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+          "
+        >
+          <h3 style="color: var(--secondary); margin-bottom: 0.5rem">
+            <i
+              class="fas fa-motorcycle"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            Analisis Unit
+          </h3>
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--gray-500);
+              margin-bottom: 1.5rem;
+            "
+          >
+            Lihat peringkat kendaraan armada yang paling produktif menghasilkan
+            laba.
+          </p>
+          <a
+            href="motor-terbanyak.html"
+            class="btn btn-primary"
+            style="
+              display: inline-block;
+              text-decoration: none;
+              text-align: center;
+            "
+            >Buka Laporan Motor</a
+          >
+        </div>
+
+        <div
+          class="stat-card"
+          style="
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+          "
+        >
+          <h3 style="color: var(--secondary); margin-bottom: 0.5rem">
+            <i
+              class="fas fa-users"
+              style="color: #10b981; margin-right: 10px"
+            ></i>
+            Demografi Pengguna
+          </h3>
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--gray-500);
+              margin-bottom: 1.5rem;
+            "
+          >
+            Pantau rasio pengguna aktif serta grafik pertumbuhan pelanggan
+            terdaftar.
+          </p>
+          <a
+            href="statistik-pelanggan.html"
+            class="btn btn-secondary"
+            style="
+              display: inline-block;
+              text-decoration: none;
+              text-align: center;
+              background-color: #10b981;
+              border-color: #10b981;
+              color: white;
+            "
+            >Buka Laporan Pelanggan</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script src="../assets/js/api-client.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+      function initDashboardSummary() {
+        // Mengambil data dari localStorage proyek Anda secara aman
+        const bookings =
+          typeof getBooking === "function"
+            ? getBooking()
+            : JSON.parse(localStorage.getItem("bookings") || "[]");
+        const paidBookings = bookings.filter(
+          (b) => b.status === "paid" || b.status === "done",
+        );
+
+        let totalOmset = 0;
+        paidBookings.forEach((b) => {
+          totalOmset += b.totalHarga || 0;
+        });
+
+        const formatUang =
+          typeof formatRupiah === "function"
+            ? formatRupiah
+            : (num) => "Rp " + Number(num).toLocaleString("id-ID");
+
+        document.getElementById("quickRevenue").innerText =
+          formatUang(totalOmset);
+        document.getElementById("quickOrders").innerText =
+          `${paidBookings.length} Transaksi`;
+      }
+
+      // Jalankan saat halaman dimuat
+      initDashboardSummary();
+      // Singkronisasi otomatis dari localStorage setiap 5 detik
+      setInterval(initDashboardSummary, 5000);
+
+      function logout() {
+        if (confirm("Apakah Anda ingin keluar dari dashboard owner?")) {
+          localStorage.removeItem("currentUser");
+          window.location.href = "../index.html";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ringkasan Pendapatan - Ngebut.in Owner</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="dashboard-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a
+          href="../index.html"
+          class="logo"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <img
+            src="../assets/img/logo.png"
+            alt="Ngebut.in Logo"
+            style="
+              height: 70px;
+              width: auto;
+              object-fit: contain;
+              mix-blend-mode: multiply;
+            "
+          />
+        </a>
+        <div class="user-profile">
+          <div
+            class="user-avatar"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--warning) 0%,
+                #d97706 100%
+              );
+            "
+          >
+            O
+          </div>
+          <div class="user-info">
+            <h4>Owner Ngebut.in</h4>
+            <p>
+              <i class="fas fa-crown" style="color: var(--warning)"></i> Chief
+              Executive
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div
+          style="
+            padding: 0 16px;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Utama
+        </div>
+        <a href="dashboard.html" class="nav-item"
+          ><i class="fas fa-chart-pie"></i> Dashboard Owner</a
+        >
+
+        <div
+          style="
+            padding: 0 16px;
+            margin: 15px 0 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Analisis & Laporan
+        </div>
+        <a href="motor-terbanyak.html" class="nav-item"
+          ><i class="fas fa-motorcycle"></i> Motor Terbanyak Disewa</a
+        >
+        <a href="statistik-pelanggan.html" class="nav-item"
+          ><i class="fas fa-users"></i> Statistik Pelanggan</a
+        >
+        <a href="ringkasan-pendapatan.html" class="nav-item active"
+          ><i class="fas fa-wallet"></i> Ringkasan Pendapatan</a
+        >
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Ringkasan Keuangan & Omset</h1>
+          <p>
+            Audit arus pendapatan berkala toko persewaan kendaraan Anda secara
+            real-time.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom: 2rem">
+        <div class="stat-card" style="border-left: 4px solid #8b5cf6">
+          <div class="stat-header">
+            <span
+              class="stat-icon"
+              style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6"
+              ><i class="fas fa-money-bill-wave"></i
+            ></span>
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--success);
+                font-weight: bold;
+              "
+              >Hari Ini</span
+            >
+          </div>
+          <div class="stat-value" id="incomeToday">Rp 0</div>
+          <div class="stat-label">Pendapatan Hari Ini</div>
+        </div>
+
+        <div class="stat-card" style="border-left: 4px solid var(--success)">
+          <div class="stat-header">
+            <span
+              class="stat-icon"
+              style="background: rgba(16, 185, 129, 0.1); color: var(--success)"
+              ><i class="fas fa-chart-line"></i
+            ></span>
+            <span
+              style="font-size: 0.8rem; color: var(--info); font-weight: bold"
+              >Bulan Ini</span
+            >
+          </div>
+          <div class="stat-value" id="incomeMonth">Rp 0</div>
+          <div class="stat-label">Pendapatan Bulan Ini</div>
+        </div>
+
+        <div class="stat-card" style="border-left: 4px solid var(--primary)">
+          <div class="stat-header">
+            <span
+              class="stat-icon"
+              style="background: rgba(204, 0, 0, 0.1); color: var(--primary)"
+              ><i class="fas fa-vault"></i
+            ></span>
+            <span
+              style="
+                font-size: 0.8rem;
+                color: var(--gray-500);
+                font-weight: bold;
+              "
+              >Akumulasi</span
+            >
+          </div>
+          <div class="stat-value" id="incomeTotal">Rp 0</div>
+          <div class="stat-label">Total Pendapatan Keseluruhan</div>
+        </div>
+      </div>
+
+      <div
+        class="stat-card"
+        style="
+          padding: 2rem;
+          background: white;
+          border-radius: var(--radius-xl);
+          box-shadow: var(--shadow);
+        "
+      >
+        <h4 style="margin-bottom: 1.5rem; color: var(--secondary)">
+          <i
+            class="fas fa-chart-line"
+            style="color: #8b5cf6; margin-right: 8px"
+          ></i>
+          Perbandingan Tren Skala Keuntungan
+        </h4>
+        <div style="position: relative; height: 280px; width: 100%">
+          <canvas id="financeChart"></canvas>
+        </div>
+      </div>
+    </main>
+
+    <script src="../assets/js/api-client.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+      let revenueChart = null;
+
+      function loadRevenueData() {
+        const bookings =
+          typeof getBooking === "function"
+            ? getBooking()
+            : JSON.parse(localStorage.getItem("bookings") || "[]");
+        const filteredPaidBookings = bookings.filter(
+          (b) => b.status === "paid" || b.status === "done",
+        );
+
+        const now = new Date();
+        const todayStr = now.toISOString().split("T")[0];
+        const currentMonth = now.getMonth();
+        const currentYear = now.getFullYear();
+
+        let incomeToday = 0,
+          incomeMonth = 0,
+          incomeTotal = 0;
+
+        filteredPaidBookings.forEach((b) => {
+          const amount = b.totalHarga || 0;
+          incomeTotal += amount;
+
+          if (b.createdAt) {
+            const bookingDate = new Date(b.createdAt);
+            const bookingDateStr = b.createdAt.split("T")[0];
+
+            if (bookingDateStr === todayStr) incomeToday += amount;
+            if (
+              bookingDate.getMonth() === currentMonth &&
+              bookingDate.getFullYear() === currentYear
+            ) {
+              incomeMonth += amount;
+            }
+          }
+        });
+
+        const formatUang =
+          typeof formatRupiah === "function"
+            ? formatRupiah
+            : (num) => "Rp " + Number(num).toLocaleString("id-ID");
+
+        document.getElementById("incomeToday").innerText =
+          formatUang(incomeToday);
+        document.getElementById("incomeMonth").innerText =
+          formatUang(incomeMonth);
+        document.getElementById("incomeTotal").innerText =
+          formatUang(incomeTotal);
+
+        // Render grafik garis (Line Chart)
+        const ctx = document.getElementById("financeChart").getContext("2d");
+        if (revenueChart) {
+          revenueChart.destroy();
+        }
+
+        revenueChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Hari Ini", "Bulan Ini", "Total Akumulasi"],
+            datasets: [
+              {
+                label: "Nilai Pendapatan (Rupiah)",
+                data: [incomeToday, incomeMonth, incomeTotal],
+                borderColor: "#8b5cf6",
+                backgroundColor: "rgba(139, 92, 246, 0.08)",
+                fill: true,
+                tension: 0.2,
+                borderWidth: 3,
+                pointBackgroundColor: "#8b5cf6",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+      loadRevenueData();
+    </script>
+  </body>
+</html>

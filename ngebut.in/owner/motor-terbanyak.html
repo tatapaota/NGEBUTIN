@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motor Terbanyak Disewa - Ngebut.in Owner</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="dashboard-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a
+          href="../index.html"
+          class="logo"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <img
+            src="../assets/img/logo.png"
+            alt="Ngebut.in Logo"
+            style="
+              height: 70px;
+              width: auto;
+              object-fit: contain;
+              mix-blend-mode: multiply;
+            "
+          />
+        </a>
+        <div class="user-profile">
+          <div
+            class="user-avatar"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--warning) 0%,
+                #d97706 100%
+              );
+            "
+          >
+            O
+          </div>
+          <div class="user-info">
+            <h4>Owner Ngebut.in</h4>
+            <p>
+              <i class="fas fa-crown" style="color: var(--warning)"></i> Chief
+              Executive
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div
+          style="
+            padding: 0 16px;
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Utama
+        </div>
+        <a href="dashboard.html" class="nav-item"
+          ><i class="fas fa-chart-pie"></i> Dashboard Owner</a
+        >
+
+        <div
+          style="
+            padding: 0 16px;
+            margin: 15px 0 5px;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            font-weight: 700;
+            text-transform: uppercase;
+          "
+        >
+          Analisis & Laporan
+        </div>
+        <a href="motor-terbanyak.html" class="nav-item active"
+          ><i class="fas fa-motorcycle"></i> Motor Terbanyak Disewa</a
+        >
+        <a href="statistik-pelanggan.html" class="nav-item"
+          ><i class="fas fa-users"></i> Statistik Pelanggan</a
+        >
+        <a href="ringkasan-pendapatan.html" class="nav-item"
+          ><i class="fas fa-wallet"></i> Ringkasan Pendapatan</a
+        >
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Analisis Aset Kendaraan</h1>
+          <p>
+            Statistik frekuensi sewa serta popularitas unit armada motor Anda.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="stat-card"
+        style="
+          padding: 2rem;
+          background: white;
+          border-radius: var(--radius-xl);
+          box-shadow: var(--shadow);
+          margin-bottom: 2rem;
+        "
+      >
+        <h4 style="margin-bottom: 1.5rem; color: var(--secondary)">
+          <i
+            class="fas fa-chart-bar"
+            style="color: #3b82f6; margin-right: 8px"
+          ></i>
+          Grafik Popularitas Motor
+        </h4>
+        <div style="position: relative; height: 300px; width: 100%">
+          <canvas id="motorChart"></canvas>
+        </div>
+      </div>
+
+      <div
+        class="stat-card"
+        style="
+          padding: 2rem;
+          background: white;
+          border-radius: var(--radius-xl);
+          box-shadow: var(--shadow);
+        "
+      >
+        <h4 style="margin-bottom: 1rem; color: var(--secondary)">
+          <i
+            class="fas fa-fire"
+            style="color: var(--primary); margin-right: 8px"
+          ></i>
+          Tabel Peringkat Motor Terbanyak Disewa
+        </h4>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Peringkat</th>
+                <th>Nama Motor</th>
+                <th style="text-align: center">Total Frekuensi Sewa</th>
+                <th>Estimasi Kontribusi Keuntungan</th>
+              </tr>
+            </thead>
+            <tbody id="topMotorsTable">
+              <tr>
+                <td colspan="4" style="text-align: center; padding: 2rem">
+                  Memuat data analisis...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="../assets/js/api-client.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+      let myChart = null;
+
+      function loadMotorData() {
+        // Mengambil data terpusat proyek Anda jika ada, jika tidak paksa tembus ke LocalStorage browser
+        const bookings =
+          typeof getBooking === "function"
+            ? getBooking()
+            : JSON.parse(localStorage.getItem("bookings") || "[]");
+        const filteredPaidBookings = bookings.filter(
+          (b) => b.status === "paid" || b.status === "done",
+        );
+
+        const motorCountMap = {};
+        filteredPaidBookings.forEach((b) => {
+          if (!motorCountMap[b.motorName]) {
+            motorCountMap[b.motorName] = { count: 0, revenue: 0 };
+          }
+          motorCountMap[b.motorName].count += 1;
+          motorCountMap[b.motorName].revenue += b.totalHarga || 0;
+        });
+
+        const sortedMotors = Object.keys(motorCountMap)
+          .map((name) => ({
+            name: name,
+            count: motorCountMap[name].count,
+            revenue: motorCountMap[name].revenue,
+          }))
+          .sort((a, b) => b.count - a.count);
+
+        const topMotorsTable = document.getElementById("topMotorsTable");
+        const formatUang =
+          typeof formatRupiah === "function"
+            ? formatRupiah
+            : (num) => "Rp " + Number(num).toLocaleString("id-ID");
+
+        if (sortedMotors.length === 0) {
+          topMotorsTable.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray-400); padding:2rem;">Belum ada riwayat transaksi transaksi sewa yang selesai</td></tr>`;
+          return;
+        }
+
+        // Render data ke dalam tabel HTML
+        topMotorsTable.innerHTML = sortedMotors
+          .map(
+            (m, index) => `
+                <tr>
+                    <td><strong>#${index + 1}</strong></td>
+                    <td><i class="fas fa-motorcycle" style="color: var(--primary); margin-right: 8px;"></i> ${m.name}</td>
+                    <td style="text-align: center;"><span class="status-badge status-booked" style="background-color: var(--gray-100); color: var(--secondary); font-weight:600; padding:4px 10px;">${m.count} Kali Sewa</span></td>
+                    <td><strong style="color: var(--success);">${formatUang(m.revenue)}</strong></td>
+                </tr>
+            `,
+          )
+          .join("");
+
+        // Render ke dalam bentuk grafik diagram Chart.js
+        const labels = sortedMotors.map((m) => m.name);
+        const dataCounts = sortedMotors.map((m) => m.count);
+
+        if (myChart) {
+          myChart.destroy();
+        }
+
+        const ctx = document.getElementById("motorChart").getContext("2d");
+        myChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Jumlah Transaksi Sewa",
+                data: dataCounts,
+                backgroundColor: "rgba(204, 0, 0, 0.75)",
+                borderColor: "rgba(204, 0, 0, 1)",
+                borderWidth: 1.5,
+                borderRadius: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { beginAtZero: true, ticks: { stepSize: 1 } },
+            },
+          },
+        });
+      }
+      loadMotorData();
+      setInterval(loadMotorData, 10000); // refresh otomatis tiap 10 detik jika ada input baru
+    </script>
+  </body>
+</html>
