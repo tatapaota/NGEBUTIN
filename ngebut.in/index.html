@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ngebut.in - Rental Motor #1 Indonesia</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a
+        href="index.html"
+        class="logo"
+        style="display: flex; align-items: center; justify-content: center"
+      >
+        <img
+          src="assets/img/logo.png"
+          alt="Ngebut.in Logo"
+          style="
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: brightness(1.05) contrast(1.05);
+          "
+        />
+      </a>
+      <div class="nav-links">
+        <a href="#catalog" class="nav-link">Motor</a>
+        <a href="#about" class="nav-link">Tentang</a>
+        <a href="#how-it-works" class="nav-link">Cara Kerja</a>
+        <a href="#contact" class="nav-link">Kontak</a>
+      </div>
+      <div class="nav-buttons" id="navAuthButtons">
+        <a href="login.html" class="btn btn-outline">Masuk</a>
+        <a href="register.html" class="btn btn-primary">Daftar</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="close-menu" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-links">
+        <a href="#catalog" class="mobile-link">Katalog Motor</a>
+        <a href="#about" class="mobile-link">Tentang Kami</a>
+        <a href="#how-it-works" class="mobile-link">Cara Sewa</a>
+        <a href="#contact" class="mobile-link">Hubungi Kami</a>
+        <hr
+          style="
+            width: 100%;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 1rem 0;
+          "
+        />
+        <a
+          href="login.html"
+          class="btn btn-outline"
+          style="width: 100%; color: white; border-color: white"
+          >Masuk</a
+        >
+        <a href="register.html" class="btn btn-primary" style="width: 100%"
+          >Daftar Sekarang</a
+        >
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section
+      class="hero"
+      style="
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(circle at center, #333333 0%, #1a1a1a 100%);
+        min-height: 90vh;
+        padding: 10rem 6% 6rem;
+      "
+    >
+      <div
+        class="hero-content"
+        data-aos="zoom-in"
+        style="
+          max-width: 1000px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <span
+          class="hero-badge"
+          style="
+            background: rgba(204, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 24px;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+          "
+        >
+          <i class="fas fa-bolt"></i> #1 RENTAL MOTOR TERPERCAYA DI INDONESIA
+        </span>
+        <h1
+          style="
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            letter-spacing: -3px;
+            color: white;
+          "
+        >
+          Gas Pol Tanpa<br />
+          <span
+            style="
+              color: var(--primary);
+              text-shadow: 0 0 50px rgba(204, 0, 0, 0.4);
+              font-style: italic;
+            "
+            >Ribet! ⚡</span
+          >
+        </h1>
+        <p
+          style="
+            font-size: 1.4rem;
+            color: var(--gray-300);
+            max-width: 750px;
+            margin-bottom: 4rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.9;
+          "
+        >
+          Solusi transportasi digital masa kini. Pilih unit motor terbaik,
+          <br class="desktop-only" />
+          booking dalam hitungan detik, dan nikmati perjalanan Anda dengan
+          tenang.
+        </p>
+        <div
+          class="hero-btns"
+          style="
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 6rem;
+          "
+        >
+          <a
+            href="#catalog"
+            class="btn btn-primary btn-lg"
+            style="
+              padding: 1.5rem 4rem;
+              border-radius: 60px;
+              font-size: 1.25rem;
+              box-shadow: 0 20px 40px rgba(204, 0, 0, 0.3);
+            "
+          >
+            Mulai Sewa
+            <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
+          </a>
+          <a
+            href="#how-it-works"
+            class="btn btn-outline-light btn-lg"
+            style="
+              padding: 1.5rem 4rem;
+              border-radius: 60px;
+              font-size: 1.25rem;
+              backdrop-filter: blur(10px);
+            "
+          >
+            <i class="fas fa-play-circle" style="margin-right: 10px"></i>
+            Tutorial
+          </a>
+        </div>
+        <div
+          class="hero-stats"
+          style="
+            display: flex;
+            gap: clamp(2rem, 8vw, 8rem);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 4rem;
+            width: 100%;
+            justify-content: center;
+            background: linear-gradient(
+              to bottom,
+              rgba(255, 255, 255, 0.02),
+              transparent
+            );
+            border-radius: 40px 40px 0 0;
+          "
+        >
+          <div class="stat-item" style="text-align: center">
+            <div
+              class="stat-number"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--primary);
+                font-weight: 900;
+              "
+            >
+              5+
+            </div>
+            <div
+              class="stat-label"
+              style="
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--gray-400);
+              "
+            >
+              Unit Tersedia
+            </div>
+          </div>
+          <div class="stat-item" style="text-align: center">
+            <div
+              class="stat-number"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--white);
+                font-weight: 900;
+              "
+            >
+              10k+
+            </div>
+            <div
+              class="stat-label"
+              style="
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--gray-400);
+              "
+            >
+              Happy Users
+            </div>
+          </div>
+          <div class="stat-item" style="text-align: center">
+            <div
+              class="stat-number"
+              style="
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                color: var(--white);
+                font-weight: 900;
+              "
+            >
+              4.9
+            </div>
+            <div
+              class="stat-label"
+              style="
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--gray-400);
+              "
+            >
+              Google Reviews
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Scroll -->
+      <a
+        href="#catalog"
+        style="
+          position: absolute;
+          bottom: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          text-decoration: none;
+        "
+      >
+        <div
+          style="
+            width: 30px;
+            height: 55px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 10px;
+          "
+        >
+          <div
+            style="
+              width: 4px;
+              height: 12px;
+              background: var(--primary);
+              border-radius: 2px;
+              animation: mouseScroll 2s infinite;
+            "
+          ></div>
+        </div>
+      </a>
+    </section>
+
+    <style>
+      @keyframes mouseScroll {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+      }
+      @media (max-width: 768px) {
+        .desktop-only {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 3rem !important;
+        }
+        .hero p {
+          font-size: 1.1rem !important;
+        }
+      }
+    </style>
+
+    <!-- CATALOG SECTION -->
+    <section id="catalog" class="section">
+      <div class="section-header" data-aos="fade-up">
+        <div
+          class="hero-badge"
+          style="
+            background: rgba(204, 0, 0, 0.1);
+            color: var(--primary);
+            margin: 0 auto 1rem;
+          "
+        >
+          Katalog Pilihan
+        </div>
+        <h2 style="font-size: 3rem; font-weight: 800">Pilih Motor Idamanmu</h2>
+        <p style="font-size: 1.2rem; color: var(--gray-500)">
+          Armada terbaru, selalu servis rutin, dan siap tempur.
+        </p>
+      </div>
+
+      <div
+        class="filter-bar"
+        style="
+          max-width: 800px;
+          margin: 0 auto 3rem;
+          box-shadow: var(--shadow-lg);
+          padding: 1.5rem;
+          border-radius: 24px;
+          background: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+        "
+      >
+        <div
+          class="search-box"
+          style="width: 100%; max-width: 600px; margin: 0 auto"
+        >
+          <i
+            class="fas fa-search"
+            style="color: var(--gray-400); margin-right: 10px"
+          ></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari Vario, NMAX, atau lainnya..."
+            onkeyup="filterMotor()"
+            style="width: 100%"
+          />
+          <button
+            class="btn btn-primary"
+            onclick="filterMotor()"
+            style="border-radius: 14px; padding: 10px 30px"
+          >
+            Cari
+          </button>
+        </div>
+        <div
+          class="filter-tabs"
+          style="
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-top: 1px solid var(--gray-100);
+            padding-top: 1.5rem;
+          "
+        >
+          <button class="filter-tab active" onclick="setFilter('all')">
+            Semua Motor
+          </button>
+          <button class="filter-tab" onclick="setFilter('available')">
+            Tersedia Sekarang
+          </button>
+          <button class="filter-tab" onclick="setFilter('booked')">
+            Sedang Disewa
+          </button>
+        </div>
+      </div>
+
+      <div id="motorGrid" class="motor-grid"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section" style="background: var(--gray-50)">
+      <div
+        class="container"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 4rem;
+          align-items: start;
+        "
+      >
+        <div data-aos="fade-right">
+          <div
+            class="hero-badge"
+            style="
+              background: rgba(204, 0, 0, 0.1);
+              color: var(--primary);
+              margin-bottom: 1.5rem;
+            "
+          >
+            Tentang Kami
+          </div>
+
+          <div style="margin-bottom: 2.5rem">
+            <h3
+              style="
+                font-size: 2rem;
+                margin-bottom: 1.25rem;
+                color: var(--secondary);
+                font-weight: 800;
+              "
+            >
+              Our Story
+            </h3>
+            <p
+              style="
+                color: var(--gray-600);
+                line-height: 1.8;
+                font-size: 1.1rem;
+              "
+            >
+              Ngebut.in hadir dari kebutuhan akan transportasi yang cepat,
+              praktis, dan terpercaya di tengah mobilitas yang semakin tinggi.
+              Kami berkembang dengan komitmen untuk memberikan pengalaman sewa
+              kendaraan yang mudah, transparan, dan efisien.
+            </p>
+          </div>
+
+          <div
+            style="
+              border-left: 4px solid var(--primary);
+              padding-left: 1.5rem;
+              margin-bottom: 2.5rem;
+              background: white;
+              padding: 2rem;
+              border-radius: var(--radius-xl);
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <h3
+              style="
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+                color: var(--secondary);
+                font-weight: 800;
+              "
+            >
+              Vision
+            </h3>
+            <p style="color: var(--gray-600); line-height: 1.6">
+              Menjadi platform rental motor terpercaya di Indonesia yang
+              mengedepankan kemudahan akses dan transparansi layanan.
+            </p>
+          </div>
+
+          <div style="padding: 1rem">
+            <h3
+              style="
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+                color: var(--secondary);
+                font-weight: 800;
+              "
+            >
+              Mission
+            </h3>
+            <p style="color: var(--gray-600); line-height: 1.6">
+              Menyediakan armada motor berkualitas, aman, dan siap digunakan
+              kapan saja dengan proses booking berbasis digital yang responsif.
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+          "
+          data-aos="fade-left"
+        >
+          <div style="position: relative; width: 100%; max-width: 450px">
+            <div
+              style="
+                position: absolute;
+                top: -30px;
+                left: -30px;
+                width: 150px;
+                height: 150px;
+                background: rgba(204, 0, 0, 0.05);
+                border-radius: 50%;
+                z-index: 0;
+              "
+            ></div>
+            <img
+              src="/assets/img/logo.png"
+              alt="Ngebut.in Logo"
+              style="
+                position: relative;
+                border-radius: var(--radius-2xl);
+                width: 100%;
+                box-shadow: var(--shadow-2xl);
+                border: 12px solid white;
+                z-index: 1;
+              "
+            />
+            <div
+              style="
+                position: absolute;
+                bottom: -20px;
+                right: -20px;
+                background: var(--primary);
+                color: white;
+                padding: 1.5rem 2.5rem;
+                border-radius: var(--radius-xl);
+                box-shadow: var(--shadow-lg);
+                z-index: 2;
+              "
+            >
+              <h4 style="font-size: 1.75rem; font-weight: 800; margin: 0">
+                EST. 2026
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES Grid -->
+    <section class="section" style="background: var(--gray-50)">
+      <div
+        class="container"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+          "
+        >
+          <div
+            class="motor-card"
+            style="
+              padding: 2.5rem;
+              text-align: center;
+              max-width: 350px;
+              flex: 1 1 300px;
+            "
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              class="feature-icon"
+              style="
+                margin: 0 auto 1.5rem;
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+                background: rgba(204, 0, 0, 0.1);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+              "
+            >
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Keamanan Utama</h3>
+            <p style="color: var(--gray-600)">
+              Sistem verifikasi ganda dan asuransi penuh untuk setiap unit motor
+              kami.
+            </p>
+          </div>
+          <div
+            class="motor-card"
+            style="
+              padding: 2.5rem;
+              text-align: center;
+              max-width: 350px;
+              flex: 1 1 300px;
+            "
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div
+              class="feature-icon"
+              style="
+                margin: 0 auto 1.5rem;
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+                background: rgba(204, 0, 0, 0.1);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+              "
+            >
+              <i class="fas fa-wallet"></i>
+            </div>
+            <h3>Harga Transparan</h3>
+            <p style="color: var(--gray-600)">
+              Tanpa biaya tersembunyi. Apa yang Anda lihat adalah apa yang Anda
+              bayar.
+            </p>
+          </div>
+          <div
+            class="motor-card"
+            style="
+              padding: 2.5rem;
+              text-align: center;
+              max-width: 350px;
+              flex: 1 1 300px;
+            "
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div
+              class="feature-icon"
+              style="
+                margin: 0 auto 1.5rem;
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+                background: rgba(204, 0, 0, 0.1);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+              "
+            >
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Proses Kilat</h3>
+            <p style="color: var(--gray-600)">
+              Booking selesai dalam 2 menit, motor siap digunakan dalam 15
+              menit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="section" style="background: var(--white)">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Cara Sewa Motor</h2>
+        <p>Proses mudah dan cepat hanya dalam hitungan menit</p>
+      </div>
+      <div
+        class="container"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            width: 100%;
+          "
+        >
+          <div
+            class="stat-item"
+            style="text-align: center; max-width: 300px"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              style="
+                font-size: 3rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+                font-weight: 800;
+              "
+            >
+              01
+            </div>
+            <h4>Pilih Motor</h4>
+            <p>Cari motor yang sesuai dengan kebutuhan Anda di katalog kami.</p>
+          </div>
+          <div
+            class="stat-item"
+            style="text-align: center; max-width: 300px"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              style="
+                font-size: 3rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+                font-weight: 800;
+              "
+            >
+              02
+            </div>
+            <h4>Booking & Bayar</h4>
+            <p>
+              Tentukan tanggal sewa dan lakukan pembayaran aman secara online.
+            </p>
+          </div>
+          <div
+            class="stat-item"
+            style="text-align: center; max-width: 300px"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              style="
+                font-size: 3rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+                font-weight: 800;
+              "
+            >
+              03
+            </div>
+            <h4>Ambil Motor</h4>
+            <p>Ambil unit di lokasi kami atau minta diantar ke lokasi Anda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="background: var(--gray-50)">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Apa Kata Mereka?</h2>
+        <p>
+          Ribuan pelanggan telah mempercayakan perjalanan mereka kepada kami
+        </p>
+      </div>
+      <div
+        class="container"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+          "
+        >
+          <div
+            class="motor-card"
+            style="padding: 2.5rem; max-width: 400px; flex: 1 1 350px"
+            data-aos="fade-up"
+          >
+            <div style="color: #ffc107; margin-bottom: 1.5rem">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p
+              style="
+                font-style: italic;
+                color: var(--gray-600);
+                line-height: 1.6;
+              "
+            >
+              "Prosesnya sangat cepat. Motor yang saya sewa (PCX) kondisinya
+              sangat baru dan bersih. Sangat recommended!"
+            </p>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 2rem;
+              "
+            >
+              <div
+                style="
+                  width: 45px;
+                  height: 45px;
+                  border-radius: 50%;
+                  background: var(--gray-200);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: bold;
+                  color: var(--gray-600);
+                "
+              >
+                R
+              </div>
+              <div>
+                <div style="font-weight: 800; color: var(--secondary)">
+                  Rizky Pratama
+                </div>
+                <div style="font-size: 0.85rem; color: var(--gray-500)">
+                  Wisatawan
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="motor-card"
+            style="padding: 2.5rem; max-width: 400px; flex: 1 1 350px"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div style="color: #ffc107; margin-bottom: 1.5rem">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p
+              style="
+                font-style: italic;
+                color: var(--gray-600);
+                line-height: 1.6;
+              "
+            >
+              "Harganya paling jujur, tidak ada biaya tersembunyi. Adminnya juga
+              sangat ramah saat serah terima motor."
+            </p>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 2rem;
+              "
+            >
+              <div
+                style="
+                  width: 45px;
+                  height: 45px;
+                  border-radius: 50%;
+                  background: var(--gray-200);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: bold;
+                  color: var(--gray-600);
+                "
+              >
+                S
+              </div>
+              <div>
+                <div style="font-weight: 800; color: var(--secondary)">
+                  Siti Aminah
+                </div>
+                <div style="font-size: 0.85rem; color: var(--gray-500)">
+                  Mahasiswi
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section" style="background: var(--white)">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Pertanyaan Umum</h2>
+        <p>Segala hal yang perlu Anda ketahui tentang penyewaan di Ngebut.in</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto">
+        <div
+          class="motor-card"
+          style="padding: 1.5rem; margin-bottom: 1rem"
+          data-aos="fade-up"
+        >
+          <h4 style="margin-bottom: 0.5rem">Apa saja syarat menyewa motor?</h4>
+          <p style="font-size: 0.875rem">
+            Cukup KTP asli, SIM C yang masih aktif, dan bersedia difoto saat
+            serah terima unit.
+          </p>
+        </div>
+        <div
+          class="motor-card"
+          style="padding: 1.5rem; margin-bottom: 1rem"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <h4 style="margin-bottom: 0.5rem">
+            Apakah motor bisa diantar ke lokasi saya?
+          </h4>
+          <p style="font-size: 0.875rem">
+            Bisa! Kami menyediakan layanan antar-jemput ke hotel, stasiun, atau
+            rumah Anda (S&K berlaku).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div
+        class="container"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 4rem;
+        "
+      >
+        <div data-aos="fade-right">
+          <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800">
+            Hubungi Kami
+          </h2>
+          <p
+            style="
+              color: var(--gray-600);
+              margin-bottom: 3rem;
+              font-size: 1.1rem;
+            "
+          >
+            Punya pertanyaan? Tim kami siap membantu Anda 24/7 untuk memastikan
+            perjalanan Anda lancar.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 2rem">
+            <div
+              style="
+                display: flex;
+                gap: 1.5rem;
+                align-items: flex-start;
+                padding: 1.5rem;
+                background: var(--gray-50);
+                border-radius: var(--radius-xl);
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: var(--primary);
+                  color: white;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.25rem;
+                "
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.5rem">Lokasi Kami</h4>
+                <p style="color: var(--gray-600)">
+                  Jalan DI Panjaitan No. 128, Purwokerto Selatan, Banyumas, Jawa
+                  Tengah
+                </p>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 1.5rem;
+                align-items: flex-start;
+                padding: 1.5rem;
+                background: var(--gray-50);
+                border-radius: var(--radius-xl);
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: var(--secondary);
+                  color: white;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.25rem;
+                "
+              >
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.5rem">Telepon</h4>
+                <p style="color: var(--gray-600)">(022) 123-4567</p>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 1.5rem;
+                align-items: flex-start;
+                padding: 1.5rem;
+                background: var(--gray-50);
+                border-radius: var(--radius-xl);
+              "
+            >
+              <div
+                style="
+                  width: 50px;
+                  height: 50px;
+                  background: #25d366;
+                  color: white;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.25rem;
+                "
+              >
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.5rem">WhatsApp</h4>
+                <p style="color: var(--gray-600)">+62 812-3456-7890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div
+            style="
+              border-radius: var(--radius-2xl);
+              overflow: hidden;
+              box-shadow: var(--shadow-2xl);
+              height: 100%;
+              min-height: 400px;
+              border: 10px solid white;
+            "
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.27063162071!2d109.2468303!3d-7.4352514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655ea49d94988d%3A0xac2ea84f703d4037!2sJl.%20DI%20Panjaitan%20No.128%2C%20Karanganyar%2C%20Karangpucung%2C%20Kec.%20Purwokerto%20Sel.%2C%20Kabupaten%20Banyumas%2C%20Jawa%20Tengah%2053142!5e0!3m2!1sid!2sid!4v1714041743534!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      style="background: var(--secondary); color: white; padding: 6rem 6% 2rem"
+    >
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 4rem;
+          margin-bottom: 4rem;
+        "
+      >
+        <div>
+          <a href="index.html" class="logo" style="margin-bottom: 1.5rem">
+            <img
+              src="/assets/img/logo.png"
+              alt="Ngebut.in Logo"
+              style="
+                height: 60px;
+                width: auto;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+              "
+            />
+          </a>
+          <p style="color: var(--gray-400); margin-top: 2rem; line-height: 1.8">
+            Ngebut.in adalah pelopor sewa motor digital di Indonesia. Kami
+            menghadirkan kemudahan mobilitas melalui teknologi dan pelayanan
+            prima.
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 2.5rem">
+            <a
+              href="#"
+              style="
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+              "
+              onmouseover="this.style.background = 'var(--primary)'"
+              onmouseout="this.style.background = 'rgba(255,255,255,0.05)'"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              style="
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+              "
+              onmouseover="this.style.background = 'var(--primary)'"
+              onmouseout="this.style.background = 'rgba(255,255,255,0.05)'"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="#"
+              style="
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+              "
+              onmouseover="this.style.background = 'var(--primary)'"
+              onmouseout="this.style.background = 'rgba(255,255,255,0.05)'"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 2rem; font-size: 1.25rem">Tautan Cepat</h4>
+          <ul
+            style="
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              gap: 1.25rem;
+            "
+          >
+            <li>
+              <a
+                href="#catalog"
+                style="color: var(--gray-400); transition: 0.3s"
+                onmouseover="this.style.color = 'white'"
+                onmouseout="this.style.color = 'var(--gray-400)'"
+                >Katalog Motor</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                style="color: var(--gray-400); transition: 0.3s"
+                onmouseover="this.style.color = 'white'"
+                onmouseout="this.style.color = 'var(--gray-400)'"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a
+                href="login.html"
+                style="color: var(--gray-400); transition: 0.3s"
+                onmouseover="this.style.color = 'white'"
+                onmouseout="this.style.color = 'var(--gray-400)'"
+                >Masuk Akun</a
+              >
+            </li>
+            <li>
+              <a
+                href="register.html"
+                style="color: var(--gray-400); transition: 0.3s"
+                onmouseover="this.style.color = 'white'"
+                onmouseout="this.style.color = 'var(--gray-400)'"
+                >Daftar Baru</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 2rem; font-size: 1.25rem">Dukungan</h4>
+          <ul
+            style="
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              gap: 1.25rem;
+              color: var(--gray-400);
+            "
+          >
+            <li style="display: flex; gap: 1rem">
+              <i class="fas fa-headset" style="color: var(--primary)"></i>
+              Customer Service 24/7
+            </li>
+            <li style="display: flex; gap: 1rem">
+              <i
+                class="fas fa-question-circle"
+                style="color: var(--primary)"
+              ></i>
+              Pusat Bantuan
+            </li>
+            <li style="display: flex; gap: 1rem">
+              <i class="fas fa-file-contract" style="color: var(--primary)"></i>
+              Syarat & Ketentuan
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        style="
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding-top: 2.5rem;
+          text-align: center;
+          color: var(--gray-500);
+          font-size: 0.95rem;
+        "
+      >
+        <p>
+          &copy; 2026 <strong>Ngebut.in</strong>. Seluruh hak cipta dilindungi
+          oleh undang-undang.
+        </p>
+      </div>
+    </footer>
+
+    <!-- MODAL BOOKING -->
+    <div id="bookingModal" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalMotorName">Pesan Motor</h3>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Nama Penyewa</label>
+            <input
+              type="text"
+              id="bookingNama"
+              readonly
+              style="background: var(--gray-100)"
+            />
+          </div>
+          <div class="form-group">
+            <label>Tanggal Mulai Sewa</label>
+            <input type="date" id="tglMulai" onchange="hitungTotal()" />
+          </div>
+          <div class="form-group">
+            <label>Tanggal Selesai Sewa</label>
+            <input type="date" id="tglSelesai" onchange="hitungTotal()" />
+          </div>
+          <div
+            style="
+              background: var(--gray-50);
+              padding: 1.25rem;
+              border-radius: var(--radius-lg);
+              margin-top: 1rem;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span style="font-weight: 600">Total Pembayaran</span>
+              <span
+                id="totalBayarText"
+                style="
+                  font-size: 1.5rem;
+                  font-weight: 800;
+                  color: var(--primary);
+                "
+                >Rp 0</span
+              >
+            </div>
+            <p
+              style="
+                color: var(--gray-500);
+                font-size: 0.875rem;
+                margin-top: 0.5rem;
+              "
+            >
+              <i class="fas fa-info-circle"></i> Harga dihitung per hari
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal()">Batal</button>
+          <button class="btn btn-primary" onclick="prosesBooking()">
+            Pesan Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/api-client.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const backToTop = document.getElementById("backToTop");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+        if (window.scrollY > 300) {
+          backToTop.classList.add("active");
+        } else {
+          backToTop.classList.remove("active");
+        }
+      });
+
+      // Mobile Menu Logic
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const closeMenu = document.getElementById("closeMenu");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenuBtn.onclick = () => {
+        mobileMenu.classList.add("active");
+        document.body.style.overflow = "hidden";
+      };
+      const hideMenu = () => {
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "auto";
+      };
+      closeMenu.onclick = hideMenu;
+      document
+        .querySelectorAll(".mobile-link")
+        .forEach((link) => (link.onclick = hideMenu));
+
+      // Back to Top
+      document.getElementById("backToTop").onclick = () =>
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // Catalog Logic
+      let currentFilter = "all";
+      let selectedMotorId = null;
+
+      let motorsData = [];
+
+      async function renderKatalog() {
+        const motors = await ApiClient.getMotors();
+        motorsData = motors;
+        const searchTerm =
+          document.getElementById("searchInput")?.value.toLowerCase() || "";
+        const grid = document.getElementById("motorGrid");
+        const filtered = motors.filter((m) => {
+          const matchSearch = m.nama.toLowerCase().includes(searchTerm);
+          const matchStatus =
+            currentFilter === "all" || m.status === currentFilter;
+          return matchSearch && matchStatus;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--gray-500);"><h3>Tidak ada motor ditemukan</h3></div>`;
+          return;
+        }
+
+        grid.innerHTML = filtered
+          .map((m) => {
+            const isAvailable = m.status === "available";
+            return `
+                <div class="motor-card" data-aos="fade-up">
+                    <div class="motor-image">
+                        <img src="${m.gambar}" alt="${m.nama}" onerror="this.src='https://placehold.co/400x300/1A1A1A/white?text=${m.nama}'">
+                        <span class="motor-badge ${isAvailable ? "badge-available" : "badge-booked"}">${isAvailable ? "TERSEDIA" : "DISEWA"}</span>
+                    </div>
+                    <div class="motor-content">
+                        <h3 class="motor-title">${m.nama}</h3>
+                        <p class="motor-desc">${m.deskripsi || "Motor berkualitas, siap pakai"}</p>
+                        <div class="motor-price">
+                            <span class="price-amount">Rp ${m.harga.toLocaleString()}</span>
+                            <span class="price-unit">/hari</span>
+                        </div>
+                        <button class="btn btn-book" onclick="openBookingModal(${m.id})" ${!isAvailable ? "disabled" : ""} style="width:100%; margin-top:1rem;">
+                            ${isAvailable ? "Sewa Sekarang" : "Tidak Tersedia"}
+                        </button>
+                    </div>
+                </div>`;
+          })
+          .join("");
+      }
+
+      function setFilter(status) {
+        currentFilter = status;
+        document
+          .querySelectorAll(".filter-tab")
+          .forEach((tab) => tab.classList.remove("active"));
+        event.target.classList.add("active");
+        renderKatalog();
+      }
+
+      function filterMotor() {
+        renderKatalog();
+      }
+
+      function openBookingModal(motorId) {
+        const user = ApiClient.getCurrentUser();
+        if (!user) {
+          if (
+            confirm("Anda harus login untuk menyewa motor. Lanjut ke login?")
+          ) {
+            window.location.href = "login.html";
+          }
+          return;
+        }
+        selectedMotorId = motorId;
+        const motor = motorsData.find((m) => m.id === motorId);
+        document.getElementById("modalMotorName").innerText =
+          `Sewa ${motor.nama}`;
+        document.getElementById("bookingNama").value = user.nama;
+        document.getElementById("bookingModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("bookingModal").style.display = "none";
+      }
+
+      function hitungTotal() {
+        const tglMulai = document.getElementById("tglMulai").value;
+        const tglSelesai = document.getElementById("tglSelesai").value;
+        if (!tglMulai || !tglSelesai) return;
+        const start = new Date(tglMulai);
+        const end = new Date(tglSelesai);
+        let days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+        if (days <= 0) {
+          document.getElementById("totalBayarText").innerText =
+            "Tgl Tidak Valid";
+          return;
+        }
+        const motor = motorsData.find((m) => m.id === selectedMotorId);
+        document.getElementById("totalBayarText").innerText =
+          `Rp ${(days * motor.harga).toLocaleString()}`;
+      }
+
+      async function prosesBooking() {
+        const tglMulai = document.getElementById("tglMulai").value;
+        const tglSelesai = document.getElementById("tglSelesai").value;
+        if (!tglMulai || !tglSelesai) {
+          alert("Pilih tanggal!");
+          return;
+        }
+
+        const motor = motorsData.find((m) => m.id === selectedMotorId);
+        const days =
+          Math.ceil(
+            (new Date(tglSelesai) - new Date(tglMulai)) / (1000 * 60 * 60 * 24),
+          ) + 1;
+
+        const bookingData = {
+          user_id: ApiClient.getCurrentUser().id,
+          motor_id: selectedMotorId,
+          tgl_mulai: tglMulai,
+          tgl_selesai: tglSelesai,
+          total_harga: days * motor.harga,
+        };
+
+        await ApiClient.createBooking(bookingData);
+        alert("Booking berhasil! Silakan cek riwayat Anda.");
+        window.location.href = "user/dashboard.html";
+      }
+
+      function updateNavbar() {
+        const user = ApiClient.getCurrentUser();
+        const desktopButtons = document.getElementById("navAuthButtons");
+        const mobileLinks = document
+          .getElementById("mobileMenu")
+          .querySelector(".mobile-links");
+
+        if (user) {
+          const dashboardUrl =
+            user.role === "admin"
+              ? "admin/dashboard.html"
+              : "user/dashboard.html";
+          const dashboardText =
+            user.role === "admin" ? "Panel Admin" : "Dashboard";
+
+          desktopButtons.innerHTML = `
+            <a href="${dashboardUrl}" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">
+                <i class="fas fa-user-circle"></i> ${dashboardText}
+            </a>
+          `;
+
+          // Update mobile menu too
+          const loginBtn = document.querySelector(".mobile-menu .btn-outline");
+          const registerBtn = document.querySelector(
+            ".mobile-menu .btn-primary",
+          );
+          if (loginBtn) loginBtn.href = dashboardUrl;
+          if (loginBtn) loginBtn.innerText = dashboardText;
+          if (registerBtn) registerBtn.style.display = "none";
+        }
+      }
+
+      window.onload = () => {
+        renderKatalog();
+        updateNavbar();
+      };
+    </script>
+  </body>
+</html>
